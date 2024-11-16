@@ -3,6 +3,8 @@ package com.example.library_rest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// this annotation ensure spring boot performs 
+// component scaning of all subpackages
 @SpringBootApplication
 public class LibraryRestApplication {
 
