@@ -1,7 +1,10 @@
+package com.example.library_rest.model;
+
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(name = "\"User\"") // Case-sensitive
 @Inheritance(strategy = InheritanceType.JOINED) // Joined --> normalized schema
 @Data // Lombok 
 @NoArgsConstructor 
