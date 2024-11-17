@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 // this annotation ensure spring boot performs 
 // component scaning of all subpackages
+// @configuration + @AutoConfiguration + @componentScan
 @SpringBootApplication
 public class LibraryRestApplication {
 
