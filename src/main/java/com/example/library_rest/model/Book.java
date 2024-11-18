@@ -2,6 +2,7 @@ package com.example.library_rest.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -15,8 +16,13 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Title cannot be null")
     private String title;
+
+    @NotNull(message = "Author cannot be null")
     private String author;
+
+    @NotNull(message = "ISBN cannot be null")
     private String isbn;
 
     @Column(name = "copies_available")
