@@ -3,14 +3,25 @@ from faker import Faker
 import random
 from datetime import datetime, timedelta
 from psycopg2.extras import execute_batch
+from dotenv import load_dotenv
+import os
 
-# Database connection
+# Load environment variables from .env file
+load_dotenv()
+DB_URL = os.getenv('DB_URL')
+DB_USERNAME = os.getenv('DB_USERNAME')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_NAME = os.getenv('DB_NAME')
+DB_HOST = os.getenv('DB_HOST')
+DB_PORT = os.getenv('DB_PORT')
+
+# Database connection configuration
 DB_CONFIG = {
-    "dbname": "lms",
-    "user": "lms_owner",
-    "password": "7GjIs2RPtJzA",
-    "host": "ep-twilight-brook-a5v4ks94.us-east-2.aws.neon.tech",
-    "port": "5432",
+    'dbname': DB_NAME,
+    'user': DB_USERNAME,
+    'password': DB_PASSWORD,
+    'host': DB_HOST,
+    'port': DB_PORT
 }
 
 # Initialize Faker
