@@ -14,11 +14,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // POST /users: Create a new user (Admin or Patron)
+    // POST /users: Create a new user 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-
-        User savedUser = userService.createUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+    public ResponseEntity<String> createUser(@RequestBody User user) {
+        userService.createUser(user);
+        return ResponseEntity.ok("User created successfully");
     }
 }
