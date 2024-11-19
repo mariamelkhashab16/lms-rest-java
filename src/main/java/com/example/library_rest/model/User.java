@@ -26,9 +26,30 @@ public class User {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Role cannot be null")
     private Role role;
-}
 
-enum Role {
-    ADMIN,
-    PATRON
+public enum Role {
+    ADMIN(0),
+    PATRON(1);
+
+    private final int value;
+
+    // Constructor
+    Role(int value) {
+        this.value = value;
+    }
+
+    // Getter method to retrieve the integer value
+    public int getValue() {
+        return value;
+    }
+
+    public static Role fromValue(int value) {
+        for (Role role : Role.values()) {
+            if (role.getValue() == value) {
+                return role;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value: " + value);
+    }
+}
 }
