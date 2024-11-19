@@ -72,6 +72,8 @@ public class BorrowingHistoryService {
         history.setUser(user);
         history.setBook(book);
         history.setBorrowDate(java.time.LocalDate.now());
+        history.setReturnDate(returnDate);
+
         borrowingHistoryRepository.save(history);
 
         return "Book borrowed successfully";
