@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LibraryRestApplication {
 
 	public static void main(String[] args) {
+
+		// TODO : move it to a @configuration file
 		Dotenv dotenv = Dotenv.load();
 		// Set environment variables as system properties
         System.setProperty("spring.datasource.url", dotenv.get("DB_URL"));

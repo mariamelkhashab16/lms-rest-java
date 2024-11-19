@@ -20,14 +20,20 @@ public class UserController {
 
     // POST /users: Create a new user 
     @PostMapping
-    public ResponseEntity<String> createUser(@RequestBody @Validated UserDTO user) {
-         // TODO : return descriptive response messages
+    public ResponseEntity<String> createUser(@RequestBody  @Validated UserDTO user) {
+        try {
         User createdUser = new User();
         createdUser.setName(user.getName());
         createdUser.setEmail(user.getEmail());
         createdUser.setRole(user.getRoleAsEnum());
 
         userService.createUser(createdUser);
-        return ResponseEntity.ok("User created successfully");
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("Failed to create user: " + e.getMessage());
     }
+}
+
 }
